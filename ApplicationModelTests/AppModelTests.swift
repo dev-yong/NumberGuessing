@@ -108,4 +108,23 @@ class AppModelTests: XCTestCase {
             XCTAssertTrue(actual.starts(with: expected))
         }
     }
+    
+    func testSUTCorrectlyPrintsGuessCountIfSinglePlayerGameFinished() {
+        let testCases = [1, 10, 100]
+        
+        testCases.forEach { fails in
+            let sut = AppModel(
+                generator: PositivieIntgerGeneratorStub(50)
+            )
+            sut.process(input: "1")
+            (0..<fails).forEach { _ in
+                sut.process(input: "30")
+            }
+            sut.flushOutput()
+            sut.process(input: "50")
+            let actual = sut.flushOutput()
+            let expected = "\(fails + 1)" + " guesses." + .newLine
+            XCTAssertEqual(actual, expected)
+        }
+    }
 }

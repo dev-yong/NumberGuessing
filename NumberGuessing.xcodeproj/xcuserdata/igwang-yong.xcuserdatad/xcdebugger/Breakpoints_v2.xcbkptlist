@@ -7,15 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7833FE24-A4A4-4D9D-934F-E9268582BBA3"
+            uuid = "A14AD31D-BAA9-403D-8BE4-7C50B48DF6C4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ApplicationModelTests/AppModelTests.swift"
+            filePath = "ApplicationModel/AppModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "AppModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
