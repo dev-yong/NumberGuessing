@@ -53,4 +53,23 @@ class AppModelTests: XCTestCase {
         )
     }
     
+    func testSUTCorrectlyPrintsTooLowMessageInSinglePlayerGame() {
+        let testCases = [(50, 40), (30, 29), (89, 9)]
+        
+        for (answer, guess) in testCases {
+            
+            let sut = AppModel(
+                generator: PositivieIntgerGeneratorStub(answer)
+            )
+            sut.process(input: "1")
+            sut.flushOutput()
+            sut.process(input: "\(guess)")
+            
+            let actual = sut.flushOutput()
+            
+            let expected = "Your guess is too low." + .newLine + "Enter your guess: "
+            XCTAssertEqual(actual, expected)
+        }
+    }
+    
 }
