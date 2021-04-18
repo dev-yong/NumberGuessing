@@ -19,15 +19,17 @@ public final class AppModel {
         self.output = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
         self.answer = generator.generateLessThanOrEqualToHundread()
         self.isSinglePlayerMode = false
+        self.tries = 0
     }
     
     private var output: String
     private var answer: Int
     private var isSinglePlayerMode: Bool
+    private var tries: Int
     public private(set) var isCompleted: Bool
     
     @discardableResult
-    public func flushOutput() -> String? {
+    public func flushOutput() -> String {
         return self.output
     }
     
@@ -44,13 +46,14 @@ public final class AppModel {
     private func processingSinglePlayerGame(
         _ input: String
     ) {
+        self.tries += 1
         guard let guess = Int(input) else { return }
         if guess < self.answer {
             self.output = "Your guess is too low." + .newLine + "Enter your guess: "
         } else if guess > self.answer {
             self.output = "Your guess is too high." + .newLine + "Enter your guess: "
         } else {
-            self.output = "Correct! "
+            self.output = "Correct! " + "\(tries)" + " guesses." + .newLine
         }
     }
     

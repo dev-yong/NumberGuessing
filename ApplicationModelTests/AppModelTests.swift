@@ -124,7 +124,7 @@ class AppModelTests: XCTestCase {
             sut.process(input: "50")
             let actual = sut.flushOutput()
             let expected = "\(fails + 1)" + " guesses." + .newLine
-            XCTAssertEqual(actual, expected)
+            XCTAssertTrue(actual.contains(expected))
         }
     }
 }
