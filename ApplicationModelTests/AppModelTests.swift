@@ -30,4 +30,13 @@ class AppModelTests: XCTestCase {
         )
     }
     
+    func testSUTCorrectlyExits() {
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(50)
+        )
+        sut.process(input: "3")
+        let actual = sut.isCompleted
+        XCTAssertTrue(actual)
+    }
+    
 }
