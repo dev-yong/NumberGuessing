@@ -18,10 +18,12 @@ public final class AppModel {
         self.isCompleted = false
         self.output = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
         self.answer = generator.generateLessThanOrEqualToHundread()
+        self.isSinglePlayerMode = false
     }
     
     private var output: String
     private var answer: Int
+    private var isSinglePlayerMode: Bool
     public private(set) var isCompleted: Bool
     
     @discardableResult
@@ -32,21 +34,22 @@ public final class AppModel {
     public func process(
         input: String
     ) {
-        if input == "1" {
-            self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
-            return
-        } else if input == "3" {
-            self.isCompleted = true
-            return
-        }
-        
-        guard let guess = Int(input) else { return }
-        if guess < self.answer {
-            self.output = "Your guess is too low." + .newLine + "Enter your guess: "
-        } else if guess > self.answer {
-            self.output = "Your guess is too high." + .newLine + "Enter your guess: "
-        } else if guess == self.answer {
-            self.output = "Correct! "
+        if self.isSinglePlayerMode {
+            guard let guess = Int(input) else { return }
+            if guess < self.answer {
+                self.output = "Your guess is too low." + .newLine + "Enter your guess: "
+            } else if guess > self.answer {
+                self.output = "Your guess is too high." + .newLine + "Enter your guess: "
+            } else if guess == self.answer {
+                self.output = "Correct! "
+            }
+        } else {
+            if input == "1" {
+                self.isSinglePlayerMode = true
+                self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+            } else if input == "3" {
+                self.isCompleted = true
+            }
         }
     }
 }
