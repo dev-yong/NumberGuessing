@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Auxiliary
 
 /// Game Application이 수행해야할 모형을 담고 있다.
 /// Game Loop를 지원하는데 필요한 인터페이스를 제공한다.
@@ -22,7 +23,7 @@ public final class AppModel {
     }
     
     public func flushOutput() -> String? {
-        nil
+        return "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
     }
     
     public func process(

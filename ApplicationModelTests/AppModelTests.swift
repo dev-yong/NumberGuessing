@@ -8,11 +8,6 @@
 import XCTest
 import ApplicationModel
 
-extension String {
-    
-    static let newLine: String = "\n"
-}
-
 class AppModelTests: XCTestCase {
     
     /// SUT (System Under Test) : 테스트를 하려는 대상

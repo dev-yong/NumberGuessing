@@ -21,6 +21,10 @@
 		FC4FCBA1262C3D5300BF48F6 /* ApplicationModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4FCB5D262C390400BF48F6 /* ApplicationModel.framework */; };
 		FC4FCBAA262C3D6B00BF48F6 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FCBA9262C3D6B00BF48F6 /* AppModelTests.swift */; };
 		FC4FCBB0262C3E5100BF48F6 /* PositivieIntgerGeneratorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FCBAF262C3E5100BF48F6 /* PositivieIntgerGeneratorStub.swift */; };
+		FC4FCBC2262C424A00BF48F6 /* Auxiliary.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4FCBC0262C424A00BF48F6 /* Auxiliary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC4FCBCA262C426800BF48F6 /* String+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FCBC9262C426800BF48F6 /* String+init.swift */; };
+		FC4FCBCE262C428300BF48F6 /* Auxiliary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4FCBBE262C424A00BF48F6 /* Auxiliary.framework */; };
+		FC4FCBCF262C428300BF48F6 /* Auxiliary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC4FCBBE262C424A00BF48F6 /* Auxiliary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FC4FCB5C262C390400BF48F6;
 			remoteInfo = ApplicationModel;
+		};
+		FC4FCBD0262C428300BF48F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC4FCB3C262C373100BF48F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC4FCBBD262C424A00BF48F6;
+			remoteInfo = Auxiliary;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -79,6 +90,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC4FCBD2262C428300BF48F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC4FCBCF262C428300BF48F6 /* Auxiliary.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +120,10 @@
 		FC4FCBA0262C3D5300BF48F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC4FCBA9262C3D6B00BF48F6 /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
 		FC4FCBAF262C3E5100BF48F6 /* PositivieIntgerGeneratorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositivieIntgerGeneratorStub.swift; sourceTree = "<group>"; };
+		FC4FCBBE262C424A00BF48F6 /* Auxiliary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Auxiliary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC4FCBC0262C424A00BF48F6 /* Auxiliary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auxiliary.h; sourceTree = "<group>"; };
+		FC4FCBC1262C424A00BF48F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4FCBC9262C426800BF48F6 /* String+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+init.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4FCBCE262C428300BF48F6 /* Auxiliary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +159,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC4FCBBB262C424A00BF48F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,6 +176,7 @@
 				FC4FCB72262C392C00BF48F6 /* Application */,
 				FC4FCB5E262C390400BF48F6 /* ApplicationModel */,
 				FC4FCB9D262C3D5300BF48F6 /* ApplicationModelTests */,
+				FC4FCBBF262C424A00BF48F6 /* Auxiliary */,
 				FC4FCB45262C373100BF48F6 /* Products */,
 				FC4FCB84262C394300BF48F6 /* Frameworks */,
 			);
@@ -154,6 +189,7 @@
 				FC4FCB5D262C390400BF48F6 /* ApplicationModel.framework */,
 				FC4FCB71262C392C00BF48F6 /* Application.framework */,
 				FC4FCB9C262C3D5300BF48F6 /* ApplicationModelTests.xctest */,
+				FC4FCBBE262C424A00BF48F6 /* Auxiliary.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +241,16 @@
 			path = ApplicationModelTests;
 			sourceTree = "<group>";
 		};
+		FC4FCBBF262C424A00BF48F6 /* Auxiliary */ = {
+			isa = PBXGroup;
+			children = (
+				FC4FCBC0262C424A00BF48F6 /* Auxiliary.h */,
+				FC4FCBC9262C426800BF48F6 /* String+init.swift */,
+				FC4FCBC1262C424A00BF48F6 /* Info.plist */,
+			);
+			path = Auxiliary;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -221,6 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4FCB75262C392C00BF48F6 /* Application.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC4FCBB9262C424A00BF48F6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC4FCBC2262C424A00BF48F6 /* Auxiliary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +308,12 @@
 				FC4FCB59262C390400BF48F6 /* Sources */,
 				FC4FCB5A262C390400BF48F6 /* Frameworks */,
 				FC4FCB5B262C390400BF48F6 /* Resources */,
+				FC4FCBD2262C428300BF48F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC4FCBD1262C428300BF48F6 /* PBXTargetDependency */,
 			);
 			name = ApplicationModel;
 			productName = ApplicationModel;
@@ -302,6 +358,24 @@
 			productReference = FC4FCB9C262C3D5300BF48F6 /* ApplicationModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FC4FCBBD262C424A00BF48F6 /* Auxiliary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC4FCBC5262C424A00BF48F6 /* Build configuration list for PBXNativeTarget "Auxiliary" */;
+			buildPhases = (
+				FC4FCBB9262C424A00BF48F6 /* Headers */,
+				FC4FCBBA262C424A00BF48F6 /* Sources */,
+				FC4FCBBB262C424A00BF48F6 /* Frameworks */,
+				FC4FCBBC262C424A00BF48F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Auxiliary;
+			productName = Auxiliary;
+			productReference = FC4FCBBE262C424A00BF48F6 /* Auxiliary.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -324,6 +398,10 @@
 					FC4FCB9B262C3D5300BF48F6 = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					FC4FCBBD262C424A00BF48F6 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
 				};
 			};
 			buildConfigurationList = FC4FCB3F262C373100BF48F6 /* Build configuration list for PBXProject "NumberGuessing" */;
@@ -343,6 +421,7 @@
 				FC4FCB70262C392C00BF48F6 /* Application */,
 				FC4FCB5C262C390400BF48F6 /* ApplicationModel */,
 				FC4FCB9B262C3D5300BF48F6 /* ApplicationModelTests */,
+				FC4FCBBD262C424A00BF48F6 /* Auxiliary */,
 			);
 		};
 /* End PBXProject section */
@@ -363,6 +442,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FC4FCB9A262C3D5300BF48F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC4FCBBC262C424A00BF48F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -407,6 +493,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC4FCBBA262C424A00BF48F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC4FCBCA262C426800BF48F6 /* String+init.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -424,6 +518,11 @@
 			isa = PBXTargetDependency;
 			target = FC4FCB5C262C390400BF48F6 /* ApplicationModel */;
 			targetProxy = FC4FCBA2262C3D5300BF48F6 /* PBXContainerItemProxy */;
+		};
+		FC4FCBD1262C428300BF48F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC4FCBBD262C424A00BF48F6 /* Auxiliary */;
+			targetProxy = FC4FCBD0262C428300BF48F6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -712,6 +811,63 @@
 			};
 			name = Release;
 		};
+		FC4FCBC3262C424A00BF48F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EPWV8KDDJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Auxiliary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwangyonglee.Auxiliary;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FC4FCBC4262C424A00BF48F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EPWV8KDDJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Auxiliary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwangyonglee.Auxiliary;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -756,6 +912,15 @@
 			buildConfigurations = (
 				FC4FCBA5262C3D5300BF48F6 /* Debug */,
 				FC4FCBA6262C3D5300BF48F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC4FCBC5262C424A00BF48F6 /* Build configuration list for PBXNativeTarget "Auxiliary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC4FCBC3262C424A00BF48F6 /* Debug */,
+				FC4FCBC4262C424A00BF48F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
