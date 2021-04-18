@@ -35,21 +35,31 @@ public final class AppModel {
         input: String
     ) {
         if self.isSinglePlayerMode {
-            guard let guess = Int(input) else { return }
-            if guess < self.answer {
-                self.output = "Your guess is too low." + .newLine + "Enter your guess: "
-            } else if guess > self.answer {
-                self.output = "Your guess is too high." + .newLine + "Enter your guess: "
-            } else if guess == self.answer {
-                self.output = "Correct! "
-            }
+            self.processingSinglePlayerGame(input)
         } else {
-            if input == "1" {
-                self.isSinglePlayerMode = true
-                self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
-            } else if input == "3" {
-                self.isCompleted = true
-            }
+            processModeSelection(input)
+        }
+    }
+    
+    private func processingSinglePlayerGame(
+        _ input: String
+    ) {
+        guard let guess = Int(input) else { return }
+        if guess < self.answer {
+            self.output = "Your guess is too low." + .newLine + "Enter your guess: "
+        } else if guess > self.answer {
+            self.output = "Your guess is too high." + .newLine + "Enter your guess: "
+        } else {
+            self.output = "Correct! "
+        }
+    }
+    
+    private func processModeSelection(_ input: String) {
+        if input == "1" {
+            self.isSinglePlayerMode = true
+            self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+        } else {
+            self.isCompleted = true
         }
     }
 }
