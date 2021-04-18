@@ -18,7 +18,7 @@ public final class AppModel {
     }
     
     public var isCompleted: Bool {
-        true
+        false
     }
     
     public func flushOutput() -> String? {
