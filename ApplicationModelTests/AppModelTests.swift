@@ -90,4 +90,22 @@ class AppModelTests: XCTestCase {
             XCTAssertEqual(actual, expected)
         }
     }
+    
+    func testSUCorrectlyPrintsCorrectMessageInSiglePlayerGame() {
+        let testCases = [1, 3, 10, 100]
+        
+        for answer in testCases {
+            
+            let sut = AppModel(
+                generator: PositivieIntgerGeneratorStub(answer)
+            )
+            sut.process(input: "1")
+            sut.flushOutput()
+            sut.process(input: "\(answer)")
+            
+            let actual = sut.flushOutput()
+            let expected = "Correct! "
+            XCTAssertTrue(actual.starts(with: expected))
+        }
+    }
 }
