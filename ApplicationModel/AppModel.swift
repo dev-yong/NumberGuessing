@@ -43,6 +43,8 @@ public final class AppModel {
         guard let guess = Int(input) else { return }
         if guess < self.answer {
             self.output = "Your guess is too low." + .newLine + "Enter your guess: "
+        } else if guess > self.answer {
+            self.output = "Your guess is too high." + .newLine + "Enter your guess: "
         }
     }
 }
