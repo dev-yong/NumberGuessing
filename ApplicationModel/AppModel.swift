@@ -8,6 +8,22 @@
 import Foundation
 import Auxiliary
 
+final class Processor {
+    
+    init(
+        _ closure: ((String) -> Processor)?
+    ) {
+         self.closure = closure
+     }
+
+     private let closure: ((String) -> Processor)?
+
+     func run(input: String) -> Processor {
+        return self.closure?(input) ?? Processor(nil)
+     }
+    
+ }
+
 /// Game Application이 수행해야할 모형을 담고 있다.
 /// Game Loop를 지원하는데 필요한 인터페이스를 제공한다.
 public final class AppModel {
@@ -20,7 +36,6 @@ public final class AppModel {
         self.generator = generator
         self.isCompleted = false
         self.output = Self.selectModeMessage
-        self.answer = -1
         self.isSinglePlayerMode = false
         self.tries = 0
     }
@@ -28,9 +43,9 @@ public final class AppModel {
     private let generator: PositiveIntegerGenerator
     public private(set) var isCompleted: Bool
     private var output: String
-    private var answer: Int
     private var isSinglePlayerMode: Bool
     private var tries: Int
+    private lazy var processor: Processor = Processor(self.processModeSelection)
     
     @discardableResult
     public func flushOutput() -> String {
@@ -40,35 +55,42 @@ public final class AppModel {
     public func process(
         input: String
     ) {
-        if self.isSinglePlayerMode {
-            self.processingSinglePlayerGame(input)
-        } else {
-            processModeSelection(input)
-        }
+        self.processor = self.processor.run(input: input)
     }
-    
-    private func processingSinglePlayerGame(
-        _ input: String
-    ) {
-        self.tries += 1
-        guard let guess = Int(input) else { return }
-        if guess < self.answer {
-            self.output = "Your guess is too low." + .newLine + "Enter your guess: "
-        } else if guess > self.answer {
-            self.output = "Your guess is too high." + .newLine + "Enter your guess: "
-        } else {
-            self.output = "Correct! " + "\(tries)" + " guesses." + .newLine + Self.selectModeMessage
-            self.isSinglePlayerMode = false
-        }
-    }
-    
-    private func processModeSelection(_ input: String) {
+
+    private func processModeSelection(_ input: String) -> Processor {
         if input == "1" {
             self.isSinglePlayerMode = true
-            self.answer = self.generator.generateLessThanOrEqualToHundread()
             self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+            
+            return self.singlePlayerGameProcessor(
+                answer: self.generator.generateLessThanOrEqualToHundread(),
+                tries: 1
+            )
         } else {
             self.isCompleted = true
+            return Processor(nil)
+        }
+    }
+    
+    private func singlePlayerGameProcessor(
+        answer: Int,
+        tries: Int
+    ) -> Processor {
+        return Processor { [weak self] (input) -> Processor in
+            guard let self = self,
+                  let guess = Int(input) else { return Processor(nil) }
+            if guess < answer {
+                self.output = "Your guess is too low." + .newLine + "Enter your guess: "
+                return self.singlePlayerGameProcessor(answer: answer, tries: tries + 1)
+            } else if guess > answer {
+                self.output = "Your guess is too high." + .newLine + "Enter your guess: "
+                return self.singlePlayerGameProcessor(answer: answer, tries: tries + 1)
+            } else {
+                self.output = "Correct! " + "\(tries)" + " guesses." + .newLine + Self.selectModeMessage
+                self.isSinglePlayerMode = false
+                return Processor(self.processModeSelection)
+            }
         }
     }
 }
