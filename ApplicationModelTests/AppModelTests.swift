@@ -24,9 +24,10 @@ class AppModelTests: XCTestCase {
             generator: PositivieIntgerGeneratorStub(50)
         )
         let actual = sut.flushOutput()
+        let expected = "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
         XCTAssertEqual(
             actual,
-            "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+            expected
         )
     }
     
@@ -47,9 +48,10 @@ class AppModelTests: XCTestCase {
         sut.process(input: "1")
         
         let actual = sut.flushOutput()
+        let expected = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
         XCTAssertEqual(
             actual,
-            "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+            expected
         )
     }
     
@@ -66,7 +68,6 @@ class AppModelTests: XCTestCase {
             sut.process(input: "\(guess)")
             
             let actual = sut.flushOutput()
-            
             let expected = "Your guess is too low." + .newLine + "Enter your guess: "
             XCTAssertEqual(actual, expected)
         }
@@ -85,7 +86,6 @@ class AppModelTests: XCTestCase {
             sut.process(input: "\(guess)")
             
             let actual = sut.flushOutput()
-            
             let expected = "Your guess is too high." + .newLine + "Enter your guess: "
             XCTAssertEqual(actual, expected)
         }
