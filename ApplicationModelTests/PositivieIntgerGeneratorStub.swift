@@ -13,8 +13,14 @@ class PositivieIntgerGeneratorStub: PositiveIntegerGenerator {
     let numbers: [Int]
     private var index: Int
     
-    init(
+    convenience init(
         _ numbers: Int...
+    ) {
+        self.init(numbers)
+    }
+    
+    init(
+        _ numbers: [Int]
     ) {
         self.numbers = numbers
         self.index = 0

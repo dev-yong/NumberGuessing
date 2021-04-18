@@ -153,4 +153,21 @@ class AppModelTests: XCTestCase {
         let actual = sut.isCompleted
         XCTAssertTrue(actual)
     }
+    
+    func testSUTGeneratesAnswerForEachGame() {
+        let input = "1, 10, 100"
+        let answers = input.components(separatedBy: ", ").compactMap { Int($0) }
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(answers)
+        )
+        answers.forEach {
+            sut.process(input: "1")
+            sut.flushOutput()
+            sut.process(input: "\($0)")
+        }
+
+        let actual = sut.flushOutput()
+        let expected = "Correct! "
+        XCTAssertTrue(actual.starts(with: expected))
+    }
 }
