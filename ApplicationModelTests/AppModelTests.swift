@@ -73,7 +73,7 @@ class AppModelTests: XCTestCase {
         }
     }
     
-    func testSUCorrectlyPrintsTooHighMessageInSiglePlayerGame() {
+    func testSUTCorrectlyPrintsTooHighMessageInSiglePlayerGame() {
         let testCases = [(50, 60), (80, 81)]
         
         for (answer, guess) in testCases {
@@ -91,7 +91,7 @@ class AppModelTests: XCTestCase {
         }
     }
     
-    func testSUCorrectlyPrintsCorrectMessageInSiglePlayerGame() {
+    func testSUTCorrectlyPrintsCorrectMessageInSiglePlayerGame() {
         let testCases = [1, 3, 10, 100]
         
         for answer in testCases {

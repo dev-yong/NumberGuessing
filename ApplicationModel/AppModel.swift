@@ -45,6 +45,8 @@ public final class AppModel {
             self.output = "Your guess is too low." + .newLine + "Enter your guess: "
         } else if guess > self.answer {
             self.output = "Your guess is too high." + .newLine + "Enter your guess: "
+        } else if guess == self.answer {
+            self.output = "Correct! "
         }
     }
 }
