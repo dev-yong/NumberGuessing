@@ -72,4 +72,22 @@ class AppModelTests: XCTestCase {
         }
     }
     
+    func testSUCorrectlyPrintsTooHighMessageInSiglePlayerGame() {
+        let testCases = [(50, 60), (80, 81)]
+        
+        for (answer, guess) in testCases {
+            
+            let sut = AppModel(
+                generator: PositivieIntgerGeneratorStub(answer)
+            )
+            sut.process(input: "1")
+            sut.flushOutput()
+            sut.process(input: "\(guess)")
+            
+            let actual = sut.flushOutput()
+            
+            let expected = "Your guess is too high." + .newLine + "Enter your guess: "
+            XCTAssertEqual(actual, expected)
+        }
+    }
 }
