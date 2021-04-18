@@ -6,6 +6,6 @@
 //
 
 import Foundation
+import Application
 
-print("Hello, World!")
-
+let _ = App()
