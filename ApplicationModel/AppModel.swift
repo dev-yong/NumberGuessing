@@ -56,6 +56,7 @@ public final class AppModel {
             self.output = "Your guess is too high." + .newLine + "Enter your guess: "
         } else {
             self.output = "Correct! " + "\(tries)" + " guesses." + .newLine + Self.selectModeMessage
+            self.isSinglePlayerMode = false
         }
     }
     
