@@ -15,12 +15,10 @@ public final class AppModel {
     public init(
         generator: PositiveIntegerGenerator
     ) {
-        
+        self.isCompleted = false
     }
     
-    public var isCompleted: Bool {
-        false
-    }
+    public private(set) var isCompleted: Bool
     
     public func flushOutput() -> String? {
         return "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
@@ -29,6 +27,8 @@ public final class AppModel {
     public func process(
         input: String
     ) {
-        
+        if input == "3" {
+            self.isCompleted = true
+        }
     }
 }
