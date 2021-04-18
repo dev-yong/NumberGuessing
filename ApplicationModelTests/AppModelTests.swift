@@ -127,4 +127,16 @@ class AppModelTests: XCTestCase {
             XCTAssertTrue(actual.contains(expected))
         }
     }
+    
+    func testSUTPrintsSelectModeMssageIfSinglePlayerGameFinished() {
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(50)
+        )
+        sut.process(input: "1")
+        sut.flushOutput()
+        sut.process(input: "50")
+        let actual = sut.flushOutput()
+        let expected = "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        XCTAssertTrue(actual.hasSuffix(expected))
+    }
 }
