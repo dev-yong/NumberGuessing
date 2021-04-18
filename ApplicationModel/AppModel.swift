@@ -17,9 +17,11 @@ public final class AppModel {
     ) {
         self.isCompleted = false
         self.output = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        self.answer = generator.generateLessThanOrEqualToHundread()
     }
     
     private var output: String
+    private var answer: Int
     public private(set) var isCompleted: Bool
     
     @discardableResult
@@ -32,9 +34,15 @@ public final class AppModel {
     ) {
         if input == "1" {
             self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
-        }
-        if input == "3" {
+            return
+        } else if input == "3" {
             self.isCompleted = true
+            return
+        }
+        
+        guard let guess = Int(input) else { return }
+        if guess < self.answer {
+            self.output = "Your guess is too low." + .newLine + "Enter your guess: "
         }
     }
 }
