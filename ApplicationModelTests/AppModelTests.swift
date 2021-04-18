@@ -39,4 +39,18 @@ class AppModelTests: XCTestCase {
         XCTAssertTrue(actual)
     }
     
+    func testSUTCorrectlyPrintsSinglePlayerGameStartMessage() {
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(50)
+        )
+        sut.flushOutput()
+        sut.process(input: "1")
+        
+        let actual = sut.flushOutput()
+        XCTAssertEqual(
+            actual,
+            "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+        )
+    }
+    
 }

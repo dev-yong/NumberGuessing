@@ -20,6 +20,7 @@ public final class AppModel {
     
     public private(set) var isCompleted: Bool
     
+    @discardableResult
     public func flushOutput() -> String? {
         return "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
     }
