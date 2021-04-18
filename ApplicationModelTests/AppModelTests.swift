@@ -10,6 +10,8 @@ import ApplicationModel
 
 class AppModelTests: XCTestCase {
     
+    static let selectModeMessage = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+    
     /// SUT (System Under Test) : 테스트를 하려는 대상
     func testSUTIsInCompletedWhenItIsInitialized() {
         let sut = AppModel(
@@ -24,7 +26,7 @@ class AppModelTests: XCTestCase {
             generator: PositivieIntgerGeneratorStub(50)
         )
         let actual = sut.flushOutput()
-        let expected = "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        let expected = Self.selectModeMessage
         XCTAssertEqual(
             actual,
             expected
@@ -136,7 +138,7 @@ class AppModelTests: XCTestCase {
         sut.flushOutput()
         sut.process(input: "50")
         let actual = sut.flushOutput()
-        let expected = "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        let expected = Self.selectModeMessage
         XCTAssertTrue(actual.hasSuffix(expected))
     }
 }

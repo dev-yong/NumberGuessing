@@ -12,11 +12,13 @@ import Auxiliary
 /// Game Loop를 지원하는데 필요한 인터페이스를 제공한다.
 public final class AppModel {
     
+    private static let selectModeMessage = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+    
     public init(
         generator: PositiveIntegerGenerator
     ) {
         self.isCompleted = false
-        self.output = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        self.output = Self.selectModeMessage
         self.answer = generator.generateLessThanOrEqualToHundread()
         self.isSinglePlayerMode = false
         self.tries = 0
@@ -53,7 +55,7 @@ public final class AppModel {
         } else if guess > self.answer {
             self.output = "Your guess is too high." + .newLine + "Enter your guess: "
         } else {
-            self.output = "Correct! " + "\(tries)" + " guesses." + .newLine + "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+            self.output = "Correct! " + "\(tries)" + " guesses." + .newLine + Self.selectModeMessage
         }
     }
     
