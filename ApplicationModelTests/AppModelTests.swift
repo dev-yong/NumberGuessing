@@ -8,15 +8,31 @@
 import XCTest
 import ApplicationModel
 
+extension String {
+    
+    static let newLine: String = "\n"
+}
+
 class AppModelTests: XCTestCase {
     
     /// SUT (System Under Test) : 테스트를 하려는 대상
-    func testSutIsInCompletedWhenItIsInitialized() {
+    func testSUTIsInCompletedWhenItIsInitialized() {
         let sut = AppModel(
             generator: PositivieIntgerGeneratorStub(50)
         )
-        let acture = sut.isCompleted
-        XCTAssertFalse(acture)
+        let actual = sut.isCompleted
+        XCTAssertFalse(actual)
+    }
+    
+    func testSUTCorrectlyPrintsSelectModeMessage() {
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(50)
+        )
+        let actual = sut.flushOutput()
+        XCTAssertEqual(
+            actual,
+            "1: Single player game" + .newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        )
     }
     
 }
