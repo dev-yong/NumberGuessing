@@ -141,4 +141,16 @@ class AppModelTests: XCTestCase {
         let expected = Self.selectModeMessage
         XCTAssertTrue(actual.hasSuffix(expected))
     }
+    
+    func testSUTReturnsToModeSelectionIFSinglPlayerGameFinished() {
+        let sut = AppModel(
+            generator: PositivieIntgerGeneratorStub(50)
+        )
+        sut.process(input: "1")
+        sut.process(input: "50")
+        sut.process(input: "3")
+        
+        let actual = sut.isCompleted
+        XCTAssertTrue(actual)
+    }
 }
