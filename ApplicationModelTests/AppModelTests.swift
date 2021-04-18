@@ -154,8 +154,9 @@ class AppModelTests: XCTestCase {
         XCTAssertTrue(actual)
     }
     
+
     func testSUTGeneratesAnswerForEachGame() {
-        let input = "1, 10, 100"
+        let input = "100, 10, 1"
         let answers = input.components(separatedBy: ", ").compactMap { Int($0) }
         let sut = AppModel(
             generator: PositivieIntgerGeneratorStub(answers)
