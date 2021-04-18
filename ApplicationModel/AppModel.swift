@@ -16,18 +16,23 @@ public final class AppModel {
         generator: PositiveIntegerGenerator
     ) {
         self.isCompleted = false
+        self.output = "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
     }
     
+    private var output: String
     public private(set) var isCompleted: Bool
     
     @discardableResult
     public func flushOutput() -> String? {
-        return "1: Single player game" + String.newLine + "2: Multiplayer game" + .newLine + "3: Exit" + .newLine + "Enter selection: "
+        return self.output
     }
     
     public func process(
         input: String
     ) {
+        if input == "1" {
+            self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
+        }
         if input == "3" {
             self.isCompleted = true
         }
