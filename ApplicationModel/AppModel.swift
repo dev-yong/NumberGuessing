@@ -17,18 +17,20 @@ public final class AppModel {
     public init(
         generator: PositiveIntegerGenerator
     ) {
+        self.generator = generator
         self.isCompleted = false
         self.output = Self.selectModeMessage
-        self.answer = generator.generateLessThanOrEqualToHundread()
+        self.answer = -1
         self.isSinglePlayerMode = false
         self.tries = 0
     }
     
+    private let generator: PositiveIntegerGenerator
+    public private(set) var isCompleted: Bool
     private var output: String
     private var answer: Int
     private var isSinglePlayerMode: Bool
     private var tries: Int
-    public private(set) var isCompleted: Bool
     
     @discardableResult
     public func flushOutput() -> String {
@@ -63,6 +65,7 @@ public final class AppModel {
     private func processModeSelection(_ input: String) {
         if input == "1" {
             self.isSinglePlayerMode = true
+            self.answer = self.generator.generateLessThanOrEqualToHundread()
             self.output = "Single player game" + .newLine + "I'm thinking of a number between 1 and 100." + .newLine + "Enter youer guess: "
         } else {
             self.isCompleted = true
